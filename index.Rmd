@@ -1,86 +1,50 @@
 ---
 title: "A3: SPL Library Checkouts"
 output: html_document
+author: Vincent La
 ---
 
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+I chose to look at all of Rick Riordan's novels and the data related to his books as they are in the Seattle Public Library system. Rick Riordan's Percy Jackson series was a hallmark in my childhood, and I found it fitting to do this assignment to attempt to analyze how popular those books were. In doing so, I also decided to focus not only on his best selling series, but also all of his books just to have more food for thought. His Percy Jackson series is one of the best selling series of all time, landing 14th on the list of best selling book series of all time according to a quick (wikipedia) search.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
-
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
+The 5 values that I calculated were the average checkouts per year for each title, the highest average checkouts per year within the last 5 years, the number of books that had over 1000 checkouts, the total amount of times a book was checked out, and the amount of times a format was checked out in a year. What I found was that physical books were by far the most popular way of consuming Rick Riordan's novels, with more checkouts than all of the other 4 combined. His most popular title is The Lightning Thief, the first book in the Percy Jackson series. There are 41 different titles, many of them repeating if they reached over 1000 checkouts in a different format, that reached over 1000 checkouts, all of which take place within the Percy Jackson universe. Interestingly enough, the Mark of Athena, the 3rd book in the second half of the series, or the 8th book overall, was the book with the highest average checkouts per year despite the Lightning Thief being the most popular book in the SPL system from Rick Riordan. An interesting trend appeared when looking at the checkout types and how they have changed over the years. Usually it was books being the most popular, however in 2021, due to the pandemic, ebooks were wildly popular and amassed 7221 checkouts, 2nd most of within this data set.
 
 ### The Dataset
 
-- Who collected/published the data?  
-- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
-- What are possible limitations or problems with this data?   (at least 200 words)
+The data was collected by the Seattle Public Library (SPL).
 
+The parameters of the data includes information on every checkout made at the SPL from 2005 to today in 2023. For each checkout, the dataset includes information on the title, author, material type, audience, checkout date, and the age and patron type of the borrower. There is also a variable for the number of checkouts for each title in each year.
 
-### First Trends Over Time Chart
+The data was collected by tracking all of the librarys' checkouts.
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+The data was likely collected for several reasons, including tracking the usage of library materials and analyzing trends in library usage over time.
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
+One ethical question to consider when working with this data is the privacy of the borrowers. The dataset includes information on the age and type of borrowers, which could potentially be used to identify individuals.
 
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
+There are several possible limitations or problems with the data. First, the dataset only includes checkouts from the SPL, so it may not be representative of library usage in other locations. Second, the dataset includes only the number of checkouts for each title, so it does not provide information on how many people actually read or used each item. Finally, the dataset does not include information on items that were checked out but never returned, so it may underestimate the true usage of some materials. It is important to keep these limitations in mind when working with this dataset and interpreting the results.
 
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
+### 15 Highest Checkouts per Year by Title and Media Type
 
-Here's an example of how to run an R script inside an RMarkdown file:
+This chart looks at the top 15 books by checkouts per year over the last 5 years. One reason I wanted to look at this was to see if digital had grown in popularity at any significance in the recent years because I thought that had I looked at the entire time length of the set then the overwhelming history that physical novels has on ebooks would make it so that the entire top 15 would consist of only physical books. As shown, there is one ebook that appears in the top 15, that being the Lightning Thief, the original book in the series. When looking at average checkouts over the entire history of the data, it appears that my thought process was incorrect as the Lightning Thief in ebook format remained as the 14th most highly checked out book per year.
 
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart1.R")}
 ```
 
-### Second Trends Over Time Chart
+### Total Checkouts of Books by Media Type over Time
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+This chart looks at the total checkouts of books by media type over time. One thing this graph clearly highlights is the increasing popularity of digital formats. In the early stages of the dataset, the type of media being checked out is dominated by physical books, however as time went on we saw an increasing popularity in audiobooks and ebooks. In 2020, with the onset of the COVID-19 pandemic, we see a decrease in total checkouts, but we see that ebooks and audiobooks were the majority of checkouts for the year. That's something that continued into 2021, and in 2022 we see the three forms of media being roughly the same. It shows how digital formats are becoming increasingly popular for a variety of reasons, though mostly due to the pandemic.
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart2.R")}
 ```
 
-### Your Choice
+### Top 10 Books
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
+Here are Rick Riordan's top 10 books by checkout in the SPL system. I mostly just wanted to see if what I thought his top 10 books were what they really were according to checkouts in the SPL system. Me personally, I would agree with this list for the most part. 9 of the top 10 are from the Percy Jackson series, the first 10 books and none of the spin offs. The Lightning Thief was the first book in the series, and thus it makes sense that it is the most popular book from Riordan. One thing to note is that all of these are physical books.
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart3.R")}
 ```
 
 
